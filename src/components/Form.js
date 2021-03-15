@@ -6,12 +6,13 @@ import Button from './Button'
 import { setQueue } from '../utills/utills'
 const numWords = require('num-words')
 
-const Form = () => {
+const Form = ({theme}) => {
 
     const [input, setInput] = useState("")
     
     const { setWordingNumber } = useContext(NumberContext)
     const {recent,setRecent} =  useContext(HistoryContext)
+    
     const handleChange = (e) => {
         const { value } = e.target;
         setInput(value)
@@ -46,19 +47,18 @@ const Form = () => {
     }, [input,setRecent])
 
 
-
     return (
         <Fragment>
             <MainForm >
                
                     <Input type="number" value={input}
                         placeholder="please enter a number"
+
                         onChange={(e) => { handleChange(e) }}
-                
+                        theme={theme}
+
                     />
                    
-                
-                
                    <ButtonWrapper><Button  value="submit" onclick={(e) => { handleSubmit(e) }}  /></ButtonWrapper> 
             </MainForm>
             
@@ -74,12 +74,13 @@ cursor:initial;
   -webkit-appearance: none;
   margin: 0;
 }
-
 border-radius: 3px;
 padding: 0.5rem 1rem;
 font-family: 'Trocchi', serif;
 font-size: 20px;
-
+border: 2px solid ${props=>props.theme.toggleBorder};
+background:${props=>props.theme.toggleBorder}
+color:${props=>props.theme.text}
 }
 `
 
@@ -91,6 +92,7 @@ align-items:center;
 `
 
 const ButtonWrapper = styled.div`
+
 
 `
 

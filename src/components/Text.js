@@ -18,6 +18,5 @@ const Wording = styled.div`
 font-size:1.5rem;
 margin-left:1rem;
 letter-spacing: 3px;
-
 `
 export default Text;

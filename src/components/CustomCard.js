@@ -7,10 +7,15 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete'
 import { HistoryContext } from '../context/historyContext';
+import { ThemeContext } from '../context/themeContext';
 import { handleDelete } from '../utills/utills'
 
-const CustomCard = () => {
-  
+
+
+const CustomCard = ({theme}) => {
+  const inlineTheme = useContext(ThemeContext).theme
+  const inlineStyleMain = inlineTheme === 'light' ? '#fff' : '#363537';
+  const inlineStyleSecondary= inlineTheme === 'light' ? '#363537' : '#fff';
   const { recent, setRecent } = useContext(HistoryContext)
   
   const deleteHistoryItem = (item) => {
@@ -22,14 +27,14 @@ const CustomCard = () => {
   const list = recent && recent.length ? [...recent].map(el => {
     const { num, date } = el
     return (<HistoryItem key={date}>
-      <StyledTypography >
+      <StyledTypography style={{color:inlineStyleSecondary}}>
         {num}
       </StyledTypography>
-      <StyledTypography >
+      <StyledTypography style={{color:inlineStyleSecondary}}>
         {date}
       </StyledTypography>
 
-      <DeleteButton 
+      <DeleteButton style={{ color: inlineStyleSecondary }}
         aria-label="delete"
         onClick={() => { deleteHistoryItem(num) }}
       >
@@ -43,8 +48,8 @@ const CustomCard = () => {
   <>
   { list?.length ?
   <Wrapper>
-<StyledCard style={{backgroundColor:`#fff`,boxShadow:'none'}} >
-  <StyledCardHeader gutterBottom variant="h5" component="h2" >
+<StyledCard style={{backgroundColor:`${inlineStyleMain }`,boxShadow:'none'}} >
+  <StyledCardHeader gutterBottom variant="h5" component="h2" theme={theme}>
     Recent Inputs
       </StyledCardHeader>
   <StyledCardContent>
@@ -93,6 +98,6 @@ font-size:44px;
 `;
 
 const StyledCardHeader = styled(Typography)`
-color:'black';
+color:${props=>props.theme.text};
 `
 

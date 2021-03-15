@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { NumberContextProvider } from './context/numberContext'
+import { HistoryContextProvider } from './context/historyContext'
+import { ThemeContextProvider } from './context/themeContext'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeContextProvider >
+    <HistoryContextProvider>
+      <NumberContextProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </NumberContextProvider>
+    </HistoryContextProvider>
+  </ThemeContextProvider>
+
+  ,
   document.getElementById('root')
 );
 
