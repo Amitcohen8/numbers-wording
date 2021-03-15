@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/numbers-wording/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/numbers-wording/static/js/main.d77bbc4f.chunk.js",
+    "main.js.map": "/numbers-wording/static/js/main.d77bbc4f.chunk.js.map",
+    "runtime-main.js": "/numbers-wording/static/js/runtime-main.3ffcd8c6.js",
+    "runtime-main.js.map": "/numbers-wording/static/js/runtime-main.3ffcd8c6.js.map",
+    "static/js/2.9c06519e.chunk.js": "/numbers-wording/static/js/2.9c06519e.chunk.js",
+    "static/js/2.9c06519e.chunk.js.map": "/numbers-wording/static/js/2.9c06519e.chunk.js.map",
+    "static/js/3.aaa2a088.chunk.js": "/numbers-wording/static/js/3.aaa2a088.chunk.js",
+    "static/js/3.aaa2a088.chunk.js.map": "/numbers-wording/static/js/3.aaa2a088.chunk.js.map",
+    "index.html": "/numbers-wording/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/numbers-wording/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.9c06519e.chunk.js.LICENSE.txt": "/numbers-wording/static/js/2.9c06519e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3ffcd8c6.js",
+    "static/js/2.9c06519e.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.d77bbc4f.chunk.js"
+  ]
+}
