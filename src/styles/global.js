@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
+import { device } from '../utills/constants';
 export const GlobalStyles = createGlobalStyle`
   
 
@@ -11,4 +11,8 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: 'Trocchi', serif;
     transition: all 0.25s linear;
+    @media only screen and ${device.mobileL}{
+  
+      font-size:12px;
+    }
   }`

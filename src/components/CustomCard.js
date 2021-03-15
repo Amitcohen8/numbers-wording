@@ -6,13 +6,15 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete'
+import {useTheme} from '@material-ui/core/styles'
 import { HistoryContext } from '../context/historyContext';
 import { ThemeContext } from '../context/themeContext';
 import { handleDelete } from '../utills/utills'
-
+import { device } from '../utills/constants';
 
 
 const CustomCard = ({theme}) => {
+    const muiTheme = useTheme()
   const inlineTheme = useContext(ThemeContext).theme
   const inlineStyleMain = inlineTheme === 'light' ? '#fff' : '#363537';
   const inlineStyleSecondary= inlineTheme === 'light' ? '#363537' : '#fff';
@@ -26,11 +28,11 @@ const CustomCard = ({theme}) => {
   }
   const list = recent && recent.length ? [...recent].map(el => {
     const { num, date } = el
-    return (<HistoryItem key={date}>
-      <StyledTypography style={{color:inlineStyleSecondary}}>
+    return (<HistoryItem key={date} theme={muiTheme}>
+      <StyledTypography style={{color:inlineStyleSecondary}} theme={muiTheme}>
         {num}
       </StyledTypography>
-      <StyledTypography style={{color:inlineStyleSecondary}}>
+      <StyledTypography style={{color:inlineStyleSecondary}} theme={muiTheme}>
         {date}
       </StyledTypography>
 
@@ -52,7 +54,7 @@ const CustomCard = ({theme}) => {
   <StyledCardHeader gutterBottom variant="h5" component="h2" theme={theme}>
     Recent Inputs
       </StyledCardHeader>
-  <StyledCardContent>
+  <StyledCardContent theme={muiTheme}>
     {list}
   </StyledCardContent>
 </StyledCard></Wrapper> : null }
@@ -69,6 +71,14 @@ const StyledCardContent = styled.div`
 display:flex;
 flex-wrap:wrap;
 
+  ${props => props.theme.breakpoints.down("xs")} {
+   
+    justify-content:center;
+    font-size:0.75rem;
+    margin-left:auto;
+    margin-bottom: 20px;
+    
+  }
 
 `
 const Wrapper = styled.div`
@@ -76,8 +86,12 @@ const Wrapper = styled.div`
 `
 const StyledTypography = styled(Typography)`
 padding:0 2rem 0 1rem;
+${props => props.theme.breakpoints.down("xs")} {
+   padding-left:0.5rem;
+ }
 font-family: 'Trocchi', serif;
 Font-weight:600;
+
 `
 const HistoryItem = styled.div`
 display flex;
@@ -87,6 +101,14 @@ margin-right:1rem;
 margin-bottom:1rem;
 border-radius:5px;
 Font-weight:bold;
+
+
+  ${props => props.theme.breakpoints.down("xs")} {
+    justify-content:center;
+    font-size:0.75rem;
+    margin-bottom: 20px; 
+  }
+
 `
 const DeleteButton = styled(IconButton)`
 fill: "#2E444E";
@@ -99,5 +121,8 @@ font-size:44px;
 
 const StyledCardHeader = styled(Typography)`
 color:${props=>props.theme.text};
+@media only screen and ${device.mobileL}{
+    text-align:center;
+  }
 `
 
