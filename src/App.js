@@ -18,17 +18,12 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
       <GlobalStyles/>
-    <AppContainer>
     <Container>
       <Form/>
       <Text/>
     </Container>
     <CustomCard/>
-    <ButtonWrapper>
     <Button value={theme === 'light' ? `Dark Mode` : 'Light Mode'} onclick={()=>{toggleTheme()}} position/>
-    </ButtonWrapper>
-    
-    </AppContainer>
     </>
     </ThemeProvider>
     
@@ -39,13 +34,6 @@ const Container = styled.div`
 display:flex;
 align-items:center;
 flex-wrap:wrap;
-
 `
 
-const ButtonWrapper = styled.div`
-
-`
-const AppContainer = styled.div`
-
-`
 export default App;

@@ -4,6 +4,7 @@ import { NumberContext } from '../context/numberContext';
 import { HistoryContext } from '../context/historyContext';
 import Button from './Button'
 import { setQueue } from '../utills/utills'
+import { device } from '../utills/constants';
 const numWords = require('num-words')
 
 const Form = ({theme}) => {
@@ -12,7 +13,7 @@ const Form = ({theme}) => {
     
     const { setWordingNumber } = useContext(NumberContext)
     const {recent,setRecent} =  useContext(HistoryContext)
-    
+
     const handleChange = (e) => {
         const { value } = e.target;
         setInput(value)
@@ -88,11 +89,14 @@ const MainForm = styled.form`
 display:flex;
 margin:1rem;
 align-items:center;
-
+@media only screen and ${device.mobileL}{
+   
+    
+  }
 `
 
 const ButtonWrapper = styled.div`
-
+float:right;
 
 `
 
